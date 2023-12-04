@@ -1,0 +1,16 @@
+
+EVENT SPRITETYPE5
+; Sprite Puerta Madera
+
+IF COLLISION 0
+	IF K = 1
+		REMOVE
+		EXPLODE 25
+		;delete key in bottom of the screen
+		LET LINE = 24
+		LET COLUMN = 10
+		PUTBLOCK 0
+		PUTBLOCK 0
+	ENDIF
+ENDIF
+

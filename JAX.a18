@@ -1,0 +1,17 @@
+
+EVENT COMPLETEDGAME
+
+
+PAPER 0
+INK 7
+AT 10 7
+PRINT "                  "
+AT 11 7
+PRINT " JUEGO COMPLETADO "
+AT 12 7
+PRINT "                  "
+REPEAT 2
+	DELAY 255
+ENDREPEAT
+
+CLS

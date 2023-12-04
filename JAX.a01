@@ -1,0 +1,42 @@
+
+EVENT SPRITETYPE1
+
+IF DIRECTION = LEFT
+    IF CANGOLEFT
+        SPRITELEFT
+        SUBTRACT 5 FROM X
+        IF CANGODOWN
+            LET DIRECTION = RIGHT
+            LET IMAGE = 9
+            LET FRAME = 0
+        ENDIF
+        ADD 5 TO X
+    ELSE
+        LET DIRECTION = RIGHT
+        LET IMAGE = 9
+        LET FRAME = 0
+    ENDIF
+ELSE
+    IF CANGORIGHT
+        SPRITERIGHT
+        ADD 5 TO X
+        IF CANGODOWN
+            LET DIRECTION = LEFT
+            LET IMAGE = 2
+            LET FRAME = 0
+        ENDIF
+        SUBTRACT 5 FROM X
+    ELSE
+        LET DIRECTION = LEFT
+        LET IMAGE = 2
+        LET FRAME = 0
+    ENDIF
+ENDIF
+
+ANIMATE SLOW
+
+IF COLLISION PLAYER
+    KILL
+ENDIF
+
+

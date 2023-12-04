@@ -1,0 +1,35 @@
+
+EVENT KILLPLAYER
+;QUAN EL JUGADOR MOR
+
+BORDER 6	;red bright
+DELAY 15
+BORDER 15	;orange
+DELAY 15
+BORDER 3	;dark red
+DELAY 15
+BORDER 0	;black
+DELAY 15
+
+SUBTRACT 1 FROM LIVES
+
+IF LIVES 0
+	LET LINE = 24
+	LET COLUMN = 0
+	;erase all heart (If JUEGO TERMINADO DIRECTLY More than one lives)
+	REPEAT 5
+		PUTBLOCK 0
+		PUTBLOCK 0	
+	ENDREPEAT
+	
+	
+	PAPER 0
+    INK 7	
+	AT 10 7
+	PRINT "                  "
+	AT 11 7
+	PRINT " JUEGO FINALIZADO "
+	AT 12 7
+	PRINT "                  "
+	DELAY 255
+ENDIF

@@ -1,0 +1,127 @@
+
+EVENT INTROMENU
+
+LET H = 0 ;Ponemos los huesos a cero
+BORDER 0
+PAPER 0
+
+AT 0 9
+REPEAT 13
+	PUTBLOCK 24
+ENDREPEAT
+AT 3 9
+REPEAT 13
+	PUTBLOCK 24
+ENDREPEAT
+
+AT 1 10
+INK 2
+PRINTMODE 1
+PRINT "JAX THE DOG"
+
+PRINTMODE 0
+INK 7
+AT 5 11
+PRINT "1. JUGAR"
+AT 7 6
+PRINT "2. REDEFINIR TECLAS"
+
+;line 9 -> for redefine keys instructions
+
+INK 6
+AT 11 1
+PRINT "Programacion"
+INK 10
+AT 11 15
+PRINT "Sergi Caparros"
+INK 7
+AT 12 15
+PRINT "CAPA"
+INK 2
+AT 12 19
+PRINT "SOFT"
+
+INK 6
+AT 14 5
+PRINT "Graficos"
+INK 10
+AT 14 15
+PRINT "Javy Fernandez"
+INK 7
+AT 15 15
+PRINT "DD"
+INK 2
+AT 15 18
+PRINT "STUDIOS"
+
+INK 6
+AT 17 7
+PRINT "Musica"
+INK 10
+AT 17 15
+PRINT "Beyker"
+
+INK 6
+AT 19 8
+PRINT "Ayuda"
+INK 10
+AT 19 15
+PRINT "Kukulcan"
+
+INK 6
+AT 21 2
+PRINT "Beta-Tester"
+INK 10
+AT 21 15
+PRINT "Blackmores"
+
+INK 3
+AT 23 12
+PRINT "(C) 2023"
+
+LET CONTROL = 99
+WHILE CONTROL = 99
+	IF KEY OPTION1
+		AT 5 9
+		PUTBLOCK 3	;flamme devant 1. JUGAR
+		DELAY 100
+
+		LET CONTROL = 0
+		CLS
+	ENDIF
+
+	IF KEY OPTION2
+		AT 7 4
+		PUTBLOCK 3	;flamme devant 2. REDEFINE TECLAS
+
+               	INK 5
+		AT 9 9
+		PRINT "SALTAR"		;Default key is Q (keyboard QWERTY) else A (keyboard AZERTY)
+		DELAY 25
+		DEFINEKEY FIRE1
+		DELAY 50
+
+		AT 9 9
+		PRINT "IZQUIERDA"		;Default key is O
+		DEFINEKEY LEFT
+		DELAY 50
+
+		AT 9 9
+		PRINT "DERECHA  "		;Default key is P
+		DEFINEKEY RIGHT
+		DELAY 50
+
+		AT 9 9
+		PRINT "FINALIZAR JUEGO"		;Default key is ESC
+		DEFINEKEY FIRE2
+		DELAY 50
+
+		;clean text
+		AT 9 9
+		PRINT "               "
+
+		AT 7 4
+		PUTBLOCK 0	;delete flamme devant 2. REDEFINE TECLAS
+       	ENDIF
+ENDWHILE
+

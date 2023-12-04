@@ -1,0 +1,120 @@
+
+EVENT SPRITETYPE6
+; Puerta teletransporte que funciona
+; Avispa
+; Variable S indica SCREEN. Como debe comportarse. Si como avispa o como puerta teletransporte.
+; S es 0, se comporta como una puerta teletransporte.
+; S es 1, se comporta como una avispa.
+
+ANIMATE MEDIUM
+
+if screen = 04
+	S = 0 
+ENDIF
+
+if screen = 10
+	S = 0 
+ENDIF
+
+;Double declaration 0 puis 1 - I delete this
+;if screen = 06
+;	S = 0 
+;ENDIF
+
+if screen = 05
+	S = 1 
+ENDIF
+
+if screen = 06
+	S = 1 
+ENDIF
+if screen = 08
+	S = 1 
+ENDIF
+if screen = 09
+	S = 1 
+ENDIF
+
+if screen = 11
+	S = 1 
+ENDIF
+
+;SCREENS 13, 14, 15, 16, 17
+if screen > 12
+	if screen < 18
+		S = 1
+	ENDIF
+ENDIF
+;if screen = 13
+;	S = 1 
+;ENDIF
+;if screen = 14
+;	S = 1 
+;ENDIF
+;if screen = 15
+;	S = 1 
+;ENDIF
+;if screen = 16
+;	S = 1 
+;ENDIF
+;if screen = 17
+;	S = 1 
+;ENDIF
+
+
+IF s = 0 ;Puerta Teletransporte que funciona
+	IF COLLISION PLAYER ;Player toca la puerta teletransportadora
+		OTHER ;Aplica al PLAYER 
+			x = 5 ;coordenada x del PLAYER
+			y = 5 ;coordenada y del PLAYER
+		EXPLODE 25
+		ENDSPRITE
+	ENDIF
+ENDIF
+
+
+If S = 1 ;sprite es avispa
+	IF SETTINGA = LEFT
+		IF CANGOLEFT
+			;LET IMAGE = 2
+			SPRITELEFT
+		ELSE
+			LET SETTINGA = RIGHT
+			;LET FRAME = 0
+		ENDIF
+	ELSE
+		IF CANGORIGHT
+			;LET IMAGE = 2
+			SPRITERIGHT
+		ELSE
+			LET SETTINGA = LEFT
+			;LET FRAME = 0
+		ENDIF
+	ENDIF
+
+	IF DIRECTION = UP
+		IF CANGOUP
+			;LET IMAGE = 2
+			SPRITEUP
+		ELSE
+			LET DIRECTION = DOWN
+			;LET FRAME = 0
+		ENDIF
+	ELSE
+		IF CANGODOWN
+			;LET IMAGE = 2
+			SPRITEDOWN
+		ELSE
+			LET DIRECTION = UP
+			;LET FRAME = 0
+		ENDIF
+	ENDIF
+	ANIMATE
+
+	IF COLLISION PLAYER
+		if S = 1
+			KILL
+		ENDIF
+	ENDIF
+ENDIF
+

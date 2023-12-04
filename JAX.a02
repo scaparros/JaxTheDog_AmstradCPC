@@ -1,0 +1,22 @@
+
+EVENT SPRITETYPE2
+; SPRITE HUESO
+
+IF COLLISION 0
+	REMOVE
+	IF H > 1
+		;if you take the last "os" don't explode
+    		EXPLODE 25
+	ENDIF
+	SCORE 100
+	SUBTRACT 1 FROM H
+	IF H = 0
+        	DELAY 50
+		CALL 31795	;CLS du niveau sans le HUD
+        	NEXTLEVEL
+	ENDIF
+	INK 7	;white
+	AT 0 14
+	SHOWSCORE
+ENDIF
+

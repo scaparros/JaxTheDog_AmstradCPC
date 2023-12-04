@@ -1,0 +1,51 @@
+
+EVENT PLAYER
+
+IF KEY LEFT
+    LET DIRECTION = LEFT
+    LET IMAGE = 1
+    IF X <= LEFTEDGE
+        SCREENLEFT
+        LET X = RIGHTEDGE
+        EXIT
+    ELSE
+        IF CANGOLEFT
+		SPRITELEFT
+		ANIMATE
+        ENDIF
+    ENDIF
+ENDIF
+
+IF KEY RIGHT
+    LET DIRECTION = RIGHT
+    LET IMAGE = 0
+    IF X >= RIGHTEDGE
+        SCREENRIGHT
+        LET X = LEFTEDGE
+        EXIT
+    ELSE
+        IF CANGORIGHT
+            IF COLLISION 5
+				;Si choco con puerta y NO tengo la llave
+			ELSE
+				SPRITERIGHT
+				ANIMATE
+			ENDIF
+        ENDIF
+    ENDIF
+ENDIF
+
+IF KEY FIRE
+    JUMP 7
+ENDIF
+FALL
+
+IF DEADLY
+	;REMOVE No funciona por el KILL
+	EXPLODE 25
+	DELAY 100
+	KILL
+ENDIF
+
+
+

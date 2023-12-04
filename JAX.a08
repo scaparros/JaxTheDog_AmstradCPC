@@ -1,0 +1,37 @@
+EVENT SPRITETYPE8
+
+IF DIRECTION = 0
+    SUBTRACT 16 FROM Y
+    IF CANGOUP
+        ADD 15 TO Y
+    ELSE
+        ADD 16 TO Y
+        LET DIRECTION = 1
+    ENDIF
+ELSE
+    IF CANGODOWN
+        ADD 1 TO Y
+    ELSE
+        LET DIRECTION = 0
+    ENDIF
+ENDIF
+IF COLLISION 0
+    LET B = Y
+    OTHER
+    IF B > Y
+        SUBTRACT Y FROM B
+        IF B > 8
+            ADD Y TO B
+            LET Y = B
+            SUBTRACT 16 FROM Y
+            STOPFALL
+        ENDIF
+        IF KEY FIRE
+            TABLEJUMP
+        ENDIF
+    ENDIF
+    ENDSPRITE
+ENDIF
+
+
+

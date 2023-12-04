@@ -1,0 +1,9 @@
+
+EVENT INITSPRITE
+
+IF TYPE = 2 ; Si es un hueso suma uno a H
+    ADD 1 TO H
+    LET SETTINGA = 0
+    LET SETTINGB = 69
+ENDIF
+

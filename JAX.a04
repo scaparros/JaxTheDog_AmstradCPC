@@ -1,0 +1,61 @@
+
+EVENT SPRITETYPE4
+
+;Sprite Llave Dorada
+
+;SCREENS 3, 4 et 5
+IF SCREEN > 2 ; Sprite Llave Dorada
+	IF SCREEN < 6 ; Sprite Llave Dorada
+		IF COLLISION 0
+			REMOVE
+			EXPLODE 25
+	    	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+		ENDIF
+	ENDIF
+ENDIF
+;IF SCREEN = 3 ; Sprite Llave Dorada
+;	IF COLLISION 0
+;		REMOVE
+;		EXPLODE 25
+;   	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+;	ENDIF
+;ENDIF
+;IF SCREEN = 4 ; Sprite Llave Dorada
+;	IF COLLISION 0
+;		REMOVE
+;		EXPLODE 25
+;    	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+;	ENDIF
+;ENDIF
+;IF SCREEN = 5 ; Sprite Llave Dorada
+;	IF COLLISION 0
+;		REMOVE
+;		EXPLODE 25
+;   	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+;	ENDIF
+;ENDIF
+
+
+IF SCREEN = 11 ; Sprite Llave Dorada
+	IF COLLISION 0
+		REMOVE
+		EXPLODE 25
+    	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+	ENDIF
+ENDIF
+
+IF SCREEN = 17 ; Sprite Llave Dorada
+	IF COLLISION 0
+		REMOVE
+		EXPLODE 25
+    	LET K = 1 ; K=1 tengo la llave. K=0 no tengo la llave
+	ENDIF
+ENDIF
+
+;Display Key
+IF K = 1
+	LET LINE = 24
+	LET COLUMN = 10
+	PUTBLOCK 25
+	PUTBLOCK 26
+ENDIF

@@ -1,0 +1,43 @@
+
+EVENT RESTARTSCREEN
+
+;AT 0 6
+;DISPLAY LIVES
+
+;max lives = 5
+LET LINE = 24
+LET COLUMN = 0
+;clean area
+REPEAT 5
+	PUTBLOCK 0
+	PUTBLOCK 0
+ENDREPEAT
+;display heart
+LET LINE = 24
+LET COLUMN = 0
+REPEAT LIVES
+	PUTBLOCK 24	;coeur/heart
+	PUTBLOCK 0	;vide/empty
+ENDREPEAT
+
+LET S = SCREEN
+ADD 1 TO S
+;INK 7	;white
+;LET LINE = 0
+;LET COLUMN = 1
+;DISPLAY DOUBLEDIGITS S
+LET LINE = 24
+LET COLUMN = 13
+REPEAT S
+	PUTBLOCK 29
+ENDREPEAT
+
+LET H = 0 ;Huesos
+LET K = 0; No tenemos llave
+LET D = 0; Direccion para saber si puede caminar al tocar una puerta (para salir). CERO puede caminar en cualquier direccion
+
+;delete key in bottom of the screen
+LET LINE = 24
+LET COLUMN = 10
+PUTBLOCK 0
+PUTBLOCK 0

@@ -1,0 +1,26 @@
+
+EVENT GAMEINIT
+
+LET LIVES = 3
+LET SCREEN = 0
+
+;INK 7
+;AT 0 0
+;PRINT "VIDAS:"
+
+;AT 0 21
+;PRINT "PANTALLA:"
+
+INK 7	;white
+AT 0 14
+SHOWSCORE
+
+;progression niveau
+
+LET LINE = 24
+LET COLUMN = 12
+	PUTBLOCK 27	;start design road
+REPEAT 18
+	PUTBLOCK 28	;road empty
+ENDREPEAT
+	PUTBLOCK 30	;House

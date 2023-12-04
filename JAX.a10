@@ -1,0 +1,15 @@
+
+EVENT MAINLOOP1
+
+;Game over direct
+IF KEY FIRE2	;GAME OVER : Z (keyboard QWERTY) else W (keyboard AZERTY)
+	LET LIVES=1
+	KILL	;saut avec -1 (lives = 0)
+ENDIF
+
+;cheat X + 3
+IF KEY FIRE3 ;Si aprieto X salta al siguiente nivel
+	IF KEY OPTION3
+		NEXTLEVEL
+	ENDIF
+ENDIF
